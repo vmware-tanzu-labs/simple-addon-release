@@ -1,0 +1,7 @@
+---
+name: simple-addon
+description: "This is a simple addon that create a file"
+templates:
+  run.ps1: bin/run.ps1
+
+packages:
