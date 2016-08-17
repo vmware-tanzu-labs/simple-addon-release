@@ -1,7 +1,7 @@
 ---
 name: simple-addon
-description: "This is a simple addon that create a file"
+description: "This is a simple addon that create a file located at C:\\testfile.txt"
 templates:
-  run.ps1: bin/run.ps1
+  pre-start.ps1: bin/pre-start.ps1
 
 packages:
