@@ -1,0 +1,6 @@
+---
+name: simple-job
+templates:
+  run.ps1: bin/run.ps1
+
+packages:
