@@ -1,0 +1,13 @@
+releases:
+- name: ODBC-windows
+  version: 0+dev.3
+
+addons:
+- name: ODBC
+  jobs:
+  - name: simple-addon
+    release: ODBC-windows
+  include:
+    deployments: [p-windows]
+  stemcell:
+    - os: win2012r2
