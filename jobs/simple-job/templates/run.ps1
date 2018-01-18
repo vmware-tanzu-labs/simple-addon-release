@@ -1,4 +1,4 @@
-while($true){
-   Write-Host "I am executing a BOSH JOB!!!!!!!!!!!"
-   Start-Sleep 1.0
-}
+$ErrorActionPreference = "Stop";
+trap { $host.SetShouldExit(1) }
+
+Start-Process "C://var/vcap/packages/odbc/whatever.exe" -ArgumentList "/s /l c:\temp" -Wait
