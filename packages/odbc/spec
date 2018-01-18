@@ -4,4 +4,4 @@ name: ODBC
 dependencies: []
 
 files:
-  - odbc-blobs/whatever.exe
+  - odbc/setup.exe

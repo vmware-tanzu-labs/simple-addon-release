@@ -7,7 +7,9 @@ Directions adapted from BOSH release creation [docs](http://bosh.io/docs/create-
 
 ```cd simple-addon-release```
 
-create directory and put driver.exe in that folder
+Add driver installer to blobstore
+
+```bosh add-blob ~/Downloads/installer.exe odbc/installer.exe```
 
 update spec & packaging
 
@@ -18,8 +20,6 @@ Start-Process "C://var/vcap/packages/<yourpackagename>/<yourpackage>.exe" -Argum
 ```
 
 Update final_name in final.yml
-
-```bosh add-blob odbc-blobs/whatever.exe ODBC```
 
 Create your release
 
