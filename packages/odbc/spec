@@ -1,7 +1,8 @@
 ---
-name: ODBC
+name: odbc
 
 dependencies: []
 
 files:
-  - odbc-blobs/whatever.exe
+  - odbc/setup.exe
+  - odbc/installer.properties

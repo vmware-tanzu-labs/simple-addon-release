@@ -1,11 +1,11 @@
 releases:
 - name: ODBC-windows
-  version: 0+dev.3
+  version: 0+dev.6
 
 addons:
 - name: ODBC
   jobs:
-  - name: simple-addon
+  - name: simple-job
     release: ODBC-windows
   include:
     deployments: [p-windows]

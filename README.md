@@ -7,7 +7,9 @@ Directions adapted from BOSH release creation [docs](http://bosh.io/docs/create-
 
 ```cd simple-addon-release```
 
-create directory and put driver.exe in that folder
+Add driver installer to blobstore
+
+```bosh add-blob ~/Downloads/installer.exe odbc/installer.exe```
 
 update spec & packaging
 
@@ -19,15 +21,13 @@ Start-Process "C://var/vcap/packages/<yourpackagename>/<yourpackage>.exe" -Argum
 
 Update final_name in final.yml
 
-```bosh add-blob odbc-blobs/whatever.exe ODBC```
-
 Create your release
 
 ```bosh create-release --force```
 
 To create an archivable release
 
-```bosh create-release --force --tarball=odbc.tgz```
+```bosh create-release --force --tarball=releases/odbc-dev1.tgz```
 
 
 More information about addons can be found [here](https://bosh.io/docs/runtime-config.html#addons).

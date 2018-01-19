@@ -1,3 +1,6 @@
-ODBC:
-  size: 13
-  sha: 873583397c8d77273d47c3b06ab5a60aac345979
+odbc/installer.properties:
+  size: 237
+  sha: 4a233730e955faa84538ba4f56de14a1c37c26f8
+odbc/setup.exe:
+  size: 113070312
+  sha: 36140b36f91c5f6435d897eb76bc1ccc08dad276
