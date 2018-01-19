@@ -29,6 +29,16 @@ To create an archivable release
 
 ```bosh create-release --force --tarball=releases/odbc-dev1.tgz```
 
+Upload releases
+
+```bosh upload-release odbc-dev1.tgz```
+
+Update runtime config
+
+```bosh update-runtime-config runtime.yml```
+
+_Apply changes_ from OpsMgr
+
 
 More information about addons can be found [here](https://bosh.io/docs/runtime-config.html#addons).
 
