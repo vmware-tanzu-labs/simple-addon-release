@@ -4,4 +4,4 @@ description: "This is a simple addon that create a file located at C:\\testfile.
 templates:
   pre-start.ps1: bin/pre-start.ps1
 
-packages:
+packages: 

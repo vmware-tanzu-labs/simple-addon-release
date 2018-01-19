@@ -1,11 +1,13 @@
 # copied from the clamav addon visual c package
 
-$ErrorActionPreference = "Stop";
-trap { $host.SetShouldExit(1) }
+# $ErrorActionPreference = "Stop";
+# trap { $host.SetShouldExit(1) }
 
-$BOSH_INSTALL_TARGET = Resolve-Path "${env:BOSH_INSTALL_TARGET}"
+# $BOSH_INSTALL_TARGET = Resolve-Path $env:BOSH_INSTALL_TARGET
 
-Move-Item odbc/setup.exe $BOSH_INSTALL_TARGET
-# Move-Item odbc/installer.properties $BOSH_INSTALL_TARGET
+# Move-Item -Path odbc/setup.exe -Destination $BOSH_INSTALL_TARGET -Force
+# Move-Item -Path odbc/installer.properties -Destination $BOSH_INSTALL_TARGET -Force
 
-Exit 0
+#Exit 0
+
+cp odbc/* ${env:BOSH_INSTALL_TARGET}
