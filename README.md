@@ -27,7 +27,7 @@ Create your release
 
 To create an archivable release
 
-```bosh create-release --force --tarball=odbc.tgz```
+```bosh create-release --force --tarball=releases/odbc-dev1.tgz```
 
 
 More information about addons can be found [here](https://bosh.io/docs/runtime-config.html#addons).
