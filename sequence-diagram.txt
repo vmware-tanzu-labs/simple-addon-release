@@ -1,0 +1,59 @@
+# Sequence Diagrams
+# Paste the below into https://mermaidjs.github.io/mermaid-live-editor
+# https://cloudconvert.com/svg-to-png
+
+sequenceDiagram
+    participant BB as Bitbucket
+    participant J as Jenkins
+    participant AR as Artifactory
+    participant AS as AquaSec
+    participant CC as CloudController
+    participant CCDB as CC Database
+    participant BS as Blobstore
+    participant ST as Stager
+    participant AU as Auctioneer
+    participant SC as StagingCell
+    participant RC as RunningCell
+    J->>BB:Check for new code
+    alt Changed
+            J->>J:Trigger Build
+    else Same
+        J-->J:NoOp
+    end
+    J->>AR:Build Artifact
+    AR->>AS:Scan Artifact
+    alt Good
+            AS->>J:Trigger Push
+    else Bad
+        AS-->>J:Fail Job
+    end
+    J->>CC:Push Application
+    J->>CC:Push Artifacts
+    J->>CC:Push Metadata
+    CC->>CCDB:Store Metadata
+    CC->>BS:Store Artifacts
+    CC->>ST:Create Staging Task
+    ST->>AU:Find Staging Capacity
+    ST->>+SC:Execute Task
+    SC->>BS:Retrieve Staging Artifacts
+    SC->>BS:Store Droplet
+    SC->>CC:Report Staging Success
+    CC->>J:Report Success
+    J->>CC:Request Droplet
+    CC->>BS:Export Droplet
+    CC->>J:Stream Droplet
+    J->>AR:Archive Droplet
+    AR->>AS:Scan Droplet
+    alt Good
+            AS->>J:Trigger Start
+    else Bad
+        AS-->>J:Fail Job
+    end
+    J->>CC:Start Application
+    CC->>CCDB:Update Metadata
+    CC->>AU:Find Running Capacity
+    CC->>RC:Start Application
+    RC->>BS:Upload Droplet
+    CC->>RC:Apply Network Policies
+    RC->>CC:Report Health Check Success
+    CC->>J:Stream Results
