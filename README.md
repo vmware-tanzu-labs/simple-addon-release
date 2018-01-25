@@ -51,11 +51,19 @@ A sample runtime config snippet is [here](./runtime.yml.example).
 
 ## Resources:
 [BOSH Docs](http://bosh.io/)
+
 [BOSH Releases](http://bosh.io/docs/release.html)
+
 [Creating a BOSH Release](http://bosh.io/docs/create-release.html)
+
 [BOSH Runtime-Config](http://bosh.io/docs/runtime-config.html)
+
 [BOSH Deployment](http://bosh.io/docs/basic-workflow.html)
+
 [Building Your First BOSH Release Video](https://youtu.be/l91q00Vu2h8)
+
 [BOSH Addons](https://bosh.io/docs/runtime-config.html#addons).
+
 [Using Bosh Add-Ons to Customize your CF Experience Video](https://www.youtube.com/watch?v=dmUSqX0ELGc)
+
 [How to Use Concourse to Deliver BOSH Releases Video](https://youtu.be/tyJPSJ5k0ek)
