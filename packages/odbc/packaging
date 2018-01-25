@@ -1,4 +1,4 @@
-# copied from the clamav addon visual c package
+# copied from the clamav addon visual c package and https://github.com/cloudfoundry-incubator/windows-tools-release/blob/f69f2a87c31453a206fbf413057f72af002fbee1/packages/7zip/packaging
 
 # $ErrorActionPreference = "Stop";
 # trap { $host.SetShouldExit(1) }
@@ -11,3 +11,9 @@
 #Exit 0
 
 cp odbc/* ${env:BOSH_INSTALL_TARGET}
+
+$BOSH_INSTALL_TARGET = Resolve-Path $env:BOSH_INSTALL_TARGET
+
+$path=(Get-ChildItem "7zip/7z*.msi").FullName
+
+Start-Process -FilePath msiexec -ArgumentList "/i $path /passive /norestart INSTALLDIR=$BOSH_INSTALL_TARGET" -Wait -PassThru -NoNewWindow
