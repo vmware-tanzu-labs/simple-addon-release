@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant J as Jenkins
+    participant AR as Artifactory
+    participant OM as Ops Manager
+    J->>AR:Check for the latest version of Elastic Runtime Tile
+    J->>AR:Download Elastic Runtime Tile
+    J ->>OM:Upload Elastic Runtime Tile using OM CLI
+    OM -->>J:OM CLI exit with code 0
+    J ->>AR:Download Elastic Stemcell
+    J ->> OM:Upload Elastic Stemcell using OM CLI
+    OM -->>J:OM CLI exit with code 0
+    J ->> OM:Trigger apply-changes using OM CLI
+    OM -->>J:OM CLI exit with code 0

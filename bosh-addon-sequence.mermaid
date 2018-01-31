@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant OM as Ops Manager
+    participant OD as Ops Director
+    participant FO as Flex Object
+    participant SC as Source Control
+    alt Install Bosh Add-Ons
+     OM->>FO:Download Add-On release
+     OM->>OD:Login
+     OM->>OD:Upload Add-On release
+     OM->>SC:Download Add-On release manifest
+     OM->>OD:Backup current runtime-config
+     OM->>OD:Update current runtime-config with Add-On information
+     OM->>OM:Apply Changes
+    else
+    end

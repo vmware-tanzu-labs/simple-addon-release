@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant BB as Bitbucket
+    participant J as Jenkins
+    participant AR as Artifactory
+    participant AS as AquaSec
+    participant BD as Blackduck
+    participant PCF as Pivotal Cloud Foundry
+    alt Build Code Pipeline
+      J->>BB:Check for new code
+      J->>J:Trigger Build
+      J->>BB: Fetch code
+      J->>AR:Build Artifact
+      J->>J:Execute Unit Tests
+      J->>AS:Scan Artifact (Dependency/OSS/Static code scan)
+      J->>J:Run other scanners
+      J->>AR:Store the Application artifact
+    else
+      J-->>J:Do Nothing
+    end
+
+    alt Deploy to Non-Prod
+      J->>AS:Download the Application Artifact
+      J->>PCF:Push Application
+      J->>PCF:Bind BlackDuck Service Instance to the application
+      PCF->>BD:Scan Droplet (Dependency/OSS/Static code scan)
+      J->>PCF:Perform ZDD
+    else Failed
+        J-->>J:Fail Job
+    end

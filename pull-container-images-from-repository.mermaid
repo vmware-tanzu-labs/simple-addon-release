@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant J as Jenkins
+  participant DH as DockerHub
+  participant ARQ as Artifactory Quarantine
+  participant AQ as Aqua
+  Participant ARB as Artifactory Blacklist
+  participant X as XRay
+  participant ARP as Artifactory Production
+  J->>DH:Check for latest version PCF images
+  J ->>ARQ:Download and validate Docker Images
+  AQ --XARQ:Scan downloaded image
+  ARQ ->>ARB:Successfully scanned image moves to Artifactory Blacklist
+  X --XARB:Scanned by Jfrog Xray
+  ARB ->>ARP:Successfully scanned image moves to Artifactory Production
